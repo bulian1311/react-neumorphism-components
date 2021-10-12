@@ -1,10 +1,9 @@
+import * as React from 'react';
 import styled from 'styled-components';
 
-import { RenderAsTypes } from './element.component'
-
-export const styledElement = (element: RenderAsTypes) => {
-  return styled(element)`
-    padding: 50px;
-    background-color: red;
-  `;
-}
+export const StyledElement = styled(({ component, ...props }) =>
+  React.cloneElement(component, props),
+)`
+  padding: 50px;
+  background-color: red;
+`;

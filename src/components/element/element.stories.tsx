@@ -12,10 +12,10 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <Element {...args}>Element</Element>
+  <Element renderAs="div" {...args}>
+    Element
+  </Element>
 );
 
 export const Elem = Template.bind({});
-Elem.args = {
-  renderAs: 'div'
-};
+Elem.args = {};

@@ -1,18 +1,27 @@
 import React from 'react';
-import {styledElement} from './element.styled'
+import { StyledElement } from './element.styled';
 
-export type RenderAsTypes = typeof React.Component | React.FC<any> | 'div' | 'button' | 'input';
+export type RenderAsTypes =
+  | React.FC<React.HTMLProps<HTMLElement>>
+  | 'div'
+  | 'button'
+  | 'input';
 
-export interface ElementProps extends React.ComponentPropsWithoutRef<any> {
+export interface ElementProps {
   renderAs: RenderAsTypes;
 }
 
-export const Element = React.forwardRef<HTMLElement, ElementProps>(
-  ({ children, renderAs, ...props }, ref) => {
-    const RenderAs = styledElement(renderAs);
+export const Element = React.forwardRef<
+  HTMLElement,
+  React.PropsWithChildren<ElementProps>
+>(({ children, renderAs, ...props }, ref) => {
+  const RenderAs = renderAs;
 
-    return <RenderAs ref={ref} {...props}>{children}</RenderAs>;
-  },
-);
+  return (
+    <StyledElement component={<RenderAs></RenderAs>} ref={ref} {...props}>
+      {children}
+    </StyledElement>
+  );
+});
 
 Element.displayName = 'Element';
