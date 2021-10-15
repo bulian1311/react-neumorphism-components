@@ -9,23 +9,14 @@ const changingStyles = (p: ButtonProps): FlattenSimpleInterpolation => {
   switch (p.size) {
     case 'small':
       padding = '0.5rem';
-      break;
-    case 'medium':
-      padding = '0.75rem';
-      break;
-    case 'large':
-      padding = '1rem';
-      break;
-  }
-
-  switch (p.size) {
-    case 'small':
       fontSize = '0.8rem';
       break;
     case 'medium':
+      padding = '0.75rem';
       fontSize = '1rem';
       break;
     case 'large':
+      padding = '1rem';
       fontSize = '1.2rem';
       break;
   }
@@ -39,7 +30,6 @@ const changingStyles = (p: ButtonProps): FlattenSimpleInterpolation => {
 export const StyledButton = styled(Element)<ButtonProps>`
   border: none;
   cursor: pointer;
-  display: block;
   width: ${(p) => p.isFullWidth && '100%'};
   ${(p) => p.disabled && 'pointer-events: none;'}
   ${changingStyles};
