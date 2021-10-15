@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledBackground } from './background.styled';
 
 export interface BackgroundProps {
-  backgroundColor?: string;
+  backgroundcolor?: string;
 }
 
 export const Background: React.FC<BackgroundProps> = ({
