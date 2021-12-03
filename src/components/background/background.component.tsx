@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyledBackground } from './background.styled';
+import cn from 'classnames';
+import styles from './background.module.css';
 
 export interface BackgroundProps {
   backgroundcolor?: string;
@@ -9,5 +10,5 @@ export const Background: React.FC<BackgroundProps> = ({
   children,
   ...props
 }) => {
-  return <StyledBackground {...props}>{children}</StyledBackground>;
+  return <div {...props} className={cn(styles.background)}>{children}</div>
 };
