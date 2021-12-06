@@ -10,5 +10,9 @@ export const Background: React.FC<BackgroundProps> = ({
   children,
   ...props
 }) => {
-  return <div {...props} className={cn(styles.background)}>{children}</div>
+  return (
+    <div {...props} className={cn(styles.background)}>
+      {children}
+    </div>
+  );
 };

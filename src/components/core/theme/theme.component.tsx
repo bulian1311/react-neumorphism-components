@@ -3,7 +3,7 @@ import {
   isValidColor,
   colorLuminance,
   getContrast,
-} from '../../utils/colors.utils';
+} from '../../../utils/colors.utils';
 import { ThemeContext } from './theme.context';
 
 interface ThemeProps {

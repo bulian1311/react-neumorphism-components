@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Button } from './button.component';
-import { Background } from '../background';
+import { Background } from '../../core/background';
 
 export default {
   title: 'Example/Button',

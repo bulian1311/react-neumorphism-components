@@ -1,1 +1,1 @@
-export * from './components/background';
+export * from './components/core/background';
