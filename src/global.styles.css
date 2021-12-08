@@ -1,0 +1,21 @@
+:root {
+  --blur: 60px;
+  --textColor: #001f3f;
+  --textColorOpposite: #f6f5f7;
+  --baseColor: #e0e0e0;
+  --darkColor: #dadada;
+  --firstGradientColor: #dadada;
+  --lightColor: #adadad;
+  --secondGradientColor: #adadad;
+  --positionX: 30px;
+  --positionXOpposite: -30px;
+  --positionY: 30px;
+  --positionYOpposite: -30px;
+  --angle: 145deg;
+  --size: 150px;
+  --radius: 30px;
+}
+
+body {
+  background-color: var(--baseColor);
+}
