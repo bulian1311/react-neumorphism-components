@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Element } from './element.component';
-import { Background } from '../background';
+import { Theme } from '../theme';
 
 export default {
   title: 'Example/Element',
@@ -13,9 +13,11 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <Background {...args}>
-    <Element renderAs="div" {...args} />
-  </Background>
+  <Theme {...args}>
+    <Element renderAs="div" {...args}>
+      Element
+    </Element>
+  </Theme>
 );
 
 export const Elem = Template.bind({});

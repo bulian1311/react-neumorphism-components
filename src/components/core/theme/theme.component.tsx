@@ -1,79 +1,99 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import {
   isValidColor,
   colorLuminance,
   getContrast,
 } from '../../../utils/colors.utils';
-import { ThemeContext } from './theme.context';
 
 interface ThemeProps {
   baseColor?: string;
+  blur?: number;
+  size?: number;
+  radius?: number;
   colorDifference?: number;
   distance?: number;
   gradient?: boolean;
   shape?: number;
-  activeLightSource: number;
+  activeLightSource?: number;
 }
 
 export const Theme: React.FC<ThemeProps> = ({
   children,
   baseColor = '#e0e0e0',
+  blur = 60,
+  size = 300,
+  radius = 50,
   colorDifference = 0.15,
   distance = 20,
   activeLightSource = 1,
+  shape = 0,
+  gradient = false,
 }) => {
-  const theme = useContext(ThemeContext);
-
-  theme.baseColor = isValidColor(baseColor) ? baseColor : '#e0e0e0';
 
   useEffect(() => {
-    document.documentElement.style.cssText = `
-      body {
-        background-color: ${baseColor}
-      };
-    `;
+    if (!isValidColor(baseColor)) return;
 
-    if (baseColor === '#e0e0e0') return;
-
-    theme.darkColor = colorLuminance(baseColor, colorDifference * -1);
-    theme.lightColor = colorLuminance(baseColor, colorDifference);
-
-    theme.textColor = getContrast(baseColor);
-    theme.textColorOpposite = baseColor;
+    let angle: number;
+    let positionX: number;
+    let positionY: number;
+    const darkColor = colorLuminance(baseColor, colorDifference * -1);
+    const lightColor = colorLuminance(baseColor, colorDifference);
 
     switch (activeLightSource) {
       case 1:
-        theme.positionX = distance;
-        theme.positionY = distance;
-        theme.angle = 145;
+        positionX = distance;
+        positionY = distance;
+        angle = 145;
         break;
       case 2:
-        theme.positionX = distance * -1;
-        theme.positionY = distance;
-        theme.angle = 225;
+        positionX = distance * -1;
+        positionY = distance;
+        angle = 225;
         break;
       case 3:
-        theme.positionX = distance * -1;
-        theme.positionY = distance * -1;
-        theme.angle = 315;
+        positionX = distance * -1;
+        positionY = distance * -1;
+        angle = 315;
         break;
       case 4:
-        theme.positionX = distance;
-        theme.positionY = distance * -1;
-        theme.angle = 45;
+        positionX = distance;
+        positionY = distance * -1;
+        angle = 45;
         break;
       default:
-        theme.positionX = distance;
-        theme.positionY = distance;
-        theme.angle = 145;
+        positionX = distance;
+        positionY = distance;
+        angle = 145;
         break;
     }
 
-    theme.positionXOpposite = theme.positionX * -1;
-    theme.positionYOpposite = theme.positionY * -1;
-  });
+    const firstGradientColor =
+      gradient && shape !== 1
+        ? colorLuminance(baseColor, shape === 3 ? 0.07 : -0.1)
+        : baseColor;
+    const secondGradientColor =
+      gradient && shape !== 1
+        ? colorLuminance(baseColor, shape === 2 ? 0.07 : -0.1)
+        : baseColor;
 
-  return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
-  );
+    document.documentElement.style.cssText = `
+    --positionX: ${positionX}px;
+    --positionXOpposite: ${positionX * -1}px;
+    --positionY: ${positionY}px;
+    --positionYOpposite: ${positionY * -1}px;
+    --angle: ${angle}deg;
+    --blur: ${blur}px;
+    --textColor: ${getContrast(baseColor)};
+    --textColorOpposite: ${baseColor};
+    --baseColor: ${baseColor};
+    --darkColor: ${darkColor};
+    --lightColor: ${lightColor};
+    --firstGradientColor: ${firstGradientColor};
+    --secondGradientColor: ${secondGradientColor};
+    --size: ${size}px;
+    --radius: ${radius}px;
+  `;
+  }, []);
+
+  return <React.Fragment>{children}</React.Fragment>;
 };
