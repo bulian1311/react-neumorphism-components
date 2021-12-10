@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   isValidColor,
   colorLuminance,
@@ -29,7 +29,6 @@ export const Theme: React.FC<ThemeProps> = ({
   shape = 0,
   gradient = false,
 }) => {
-
   useEffect(() => {
     if (!isValidColor(baseColor)) return;
 
@@ -93,7 +92,17 @@ export const Theme: React.FC<ThemeProps> = ({
     --size: ${size}px;
     --radius: ${radius}px;
   `;
-  }, []);
+  }, [
+    baseColor,
+    blur,
+    size,
+    radius,
+    distance,
+    colorDifference,
+    activeLightSource,
+    shape,
+    gradient,
+  ]);
 
   return <React.Fragment>{children}</React.Fragment>;
 };

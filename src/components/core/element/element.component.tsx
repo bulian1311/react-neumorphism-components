@@ -1,6 +1,6 @@
-import React, { useContext, ComponentPropsWithoutRef } from 'react';
-import { colorLuminance } from '../../../utils/colors.utils';
-import { ThemeContext } from '../theme/theme.context';
+import React, { ComponentPropsWithoutRef } from 'react';
+import cn from 'classnames';
+import styles from './element.module.css';
 
 export type RenderAsTypes = 'div' | 'button' | 'input';
 
@@ -13,19 +13,9 @@ export interface ElementProps extends ComponentPropsWithoutRef<any> {
 export const Element = React.forwardRef<any, ElementProps>(
   ({ children, renderAs, gradient = false, shape = 0, ...props }, ref) => {
     const RenderAs = renderAs;
-    const theme = useContext(ThemeContext);
-
-    theme.firstGradientColor =
-      gradient && shape !== 1
-        ? colorLuminance(theme.baseColor, shape === 3 ? 0.07 : -0.1)
-        : theme.baseColor;
-    theme.secondGradientColor =
-      gradient && shape !== 1
-        ? colorLuminance(theme.baseColor, shape === 2 ? 0.07 : -0.1)
-        : theme.baseColor;
 
     return (
-      <RenderAs ref={ref} {...props}>
+      <RenderAs ref={ref} {...props} className={cn(styles.softElement, styles.softShadow)}>
         {children}
       </RenderAs>
     );
