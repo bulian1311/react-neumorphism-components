@@ -9,12 +9,19 @@
 }
 
 .softShadow {
-  background: linear-gradient(var(--angle), var(--firstGradientColor), var(--secondGradientColor));
+  background: linear-gradient(
+    var(--angle),
+    var(--firstGradientColor),
+    var(--secondGradientColor)
+  );
   box-shadow: var(--positionX) var(--positionY) var(--blur) var(--darkColor),
-    var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
+    var(--positionXOpposite) var(--positionYOpposite) var(--blur)
+      var(--lightColor);
 }
 
 .pressed {
-  box-shadow: inset var(--positionX) var(--positionY) var(--blur) var(--darkColor),
-    inset var(--positionXOpposite) var(--positionYOpposite) var(--blur) var(--lightColor);
+  box-shadow: inset var(--positionX) var(--positionY) var(--blur)
+      var(--darkColor),
+    inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
+      var(--lightColor);
 }

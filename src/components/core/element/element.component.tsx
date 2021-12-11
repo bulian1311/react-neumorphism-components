@@ -15,7 +15,11 @@ export const Element = React.forwardRef<any, ElementProps>(
     const RenderAs = renderAs;
 
     return (
-      <RenderAs ref={ref} {...props} className={cn(styles.softElement, styles.softShadow)}>
+      <RenderAs
+        ref={ref}
+        {...props}
+        className={cn(styles.softElement, styles.softShadow)}
+      >
         {children}
       </RenderAs>
     );
