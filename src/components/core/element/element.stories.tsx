@@ -34,11 +34,11 @@ export default {
       type: { name: 'number', required: false },
       name: 'Active light source',
       options: [1, 2, 3, 4],
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     shape: { control: 'number' },
     radius: { control: 'number' },
-    size: { control: 'number' }
+    size: { control: 'number' },
   },
 } as Meta;
 
@@ -55,5 +55,5 @@ Elem.args = {
   blur: 60,
   distance: 20,
   colorDifference: 0.15,
-  activeLightSource: 1
+  activeLightSource: 1,
 };
