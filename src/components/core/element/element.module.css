@@ -3,25 +3,38 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: var(--size);
-  height: var(--size);
-  border-radius: var(--radius);
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
 }
 
 .softShadow {
-  background: linear-gradient(
-    var(--angle),
-    var(--firstGradientColor),
-    var(--secondGradientColor)
-  );
-  box-shadow: var(--positionX) var(--positionY) var(--blur) var(--darkColor),
-    var(--positionXOpposite) var(--positionYOpposite) var(--blur)
-      var(--lightColor);
+  box-shadow: var(--neumorphism-positionX) var(--neumorphism-positionY)
+      var(--neumorphism-blur) var(--neumorphism-darkColor),
+    var(--neumorphism-positionXOpposite) var(--neumorphism-positionYOpposite)
+      var(--neumorphism-blur) var(--neumorphism-lightColor);
 }
 
 .pressed {
-  box-shadow: inset var(--positionX) var(--positionY) var(--blur)
-      var(--darkColor),
-    inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
-      var(--lightColor);
+  box-shadow: inset var(--neumorphism-positionX) var(--neumorphism-positionY)
+      var(--neumorphism-blur) var(--neumorphism-darkColor),
+    inset var(--neumorphism-positionXOpposite)
+      var(--neumorphism-positionYOpposite) var(--neumorphism-blur)
+      var(--neumorphism-lightColor);
+}
+
+.convex {
+  background: linear-gradient(
+    var(--neumorphism-angle),
+    var(--neumorphism-firstGradientColor),
+    var(--neumorphism-secondGradientColor)
+  );
+}
+
+.concave {
+  background: linear-gradient(
+    var(--neumorphism-angle),
+    var(--neumorphism-secondGradientColor),
+    var(--neumorphism-firstGradientColor)
+  );
 }

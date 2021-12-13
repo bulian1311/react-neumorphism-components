@@ -36,7 +36,12 @@ export default {
       options: [1, 2, 3, 4],
       control: { type: 'select' },
     },
-    shape: { control: 'number' },
+    shape: {
+      type: { name: 'string', required: false },
+      name: 'Shape',
+      options: ['flat', 'pressed', 'convex', 'concave'],
+      control: { type: 'select' },
+    },
     radius: { control: 'number' },
     size: { control: 'number' },
   },
@@ -44,7 +49,9 @@ export default {
 
 const Template: Story = (args) => (
   <Theme {...args}>
-    <Element renderAs="div">Element</Element>
+    <Element shape={args.shape} renderAs="div">
+      Element
+    </Element>
   </Theme>
 );
 
@@ -56,4 +63,5 @@ Elem.args = {
   distance: 20,
   colorDifference: 0.15,
   activeLightSource: 1,
+  shape: 'flat',
 };

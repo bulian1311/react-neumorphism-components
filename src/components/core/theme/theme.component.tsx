@@ -8,8 +8,6 @@ import {
 interface ThemeProps {
   baseColor?: string;
   blur?: number;
-  size?: number;
-  radius?: number;
   colorDifference?: number;
   distance?: number;
   gradient?: boolean;
@@ -21,8 +19,6 @@ export const Theme: React.FC<ThemeProps> = ({
   children,
   baseColor = '#e0e0e0',
   blur = 60,
-  size = 300,
-  radius = 50,
   colorDifference = 0.15,
   distance = 20,
   activeLightSource = 1,
@@ -66,37 +62,27 @@ export const Theme: React.FC<ThemeProps> = ({
         break;
     }
 
-    const firstGradientColor =
-      gradient && shape !== 1
-        ? colorLuminance(baseColor, shape === 3 ? 0.07 : -0.1)
-        : baseColor;
-    const secondGradientColor =
-      gradient && shape !== 1
-        ? colorLuminance(baseColor, shape === 2 ? 0.07 : -0.1)
-        : baseColor;
+    const firstGradientColor = colorLuminance(baseColor, 0.07);
+    const secondGradientColor = colorLuminance(baseColor, -0.1);
 
     document.documentElement.style.cssText = `
-    --positionX: ${positionX}px;
-    --positionXOpposite: ${positionX * -1}px;
-    --positionY: ${positionY}px;
-    --positionYOpposite: ${positionY * -1}px;
-    --angle: ${angle}deg;
-    --blur: ${blur}px;
-    --textColor: ${getContrast(baseColor)};
-    --textColorOpposite: ${baseColor};
-    --baseColor: ${baseColor};
-    --darkColor: ${darkColor};
-    --lightColor: ${lightColor};
-    --firstGradientColor: ${firstGradientColor};
-    --secondGradientColor: ${secondGradientColor};
-    --size: ${size}px;
-    --radius: ${radius}px;
+    --neumorphism-positionX: ${positionX}px;
+    --neumorphism-positionXOpposite: ${positionX * -1}px;
+    --neumorphism-positionY: ${positionY}px;
+    --neumorphism-positionYOpposite: ${positionY * -1}px;
+    --neumorphism-angle: ${angle}deg;
+    --neumorphism-blur: ${blur}px;
+    --neumorphism-textColor: ${getContrast(baseColor)};
+    --neumorphism-textColorOpposite: ${baseColor};
+    --neumorphism-baseColor: ${baseColor};
+    --neumorphism-darkColor: ${darkColor};
+    --neumorphism-lightColor: ${lightColor};
+    --neumorphism-firstGradientColor: ${firstGradientColor};
+    --neumorphism-secondGradientColor: ${secondGradientColor};
   `;
   }, [
     baseColor,
     blur,
-    size,
-    radius,
     distance,
     colorDifference,
     activeLightSource,
