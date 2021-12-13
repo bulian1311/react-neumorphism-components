@@ -1,22 +1,20 @@
 :root {
-  --blur: 60px;
-  --textColor: #001f3f;
-  --textColorOpposite: #f6f5f7;
-  --baseColor: #e0e0e0;
-  --darkColor: #dadada;
-  --firstGradientColor: #dadada;
-  --lightColor: #adadad;
-  --secondGradientColor: #adadad;
-  --positionX: 30px;
-  --positionXOpposite: -30px;
-  --positionY: 30px;
-  --positionYOpposite: -30px;
-  --angle: 145deg;
-  --size: 150px;
-  --radius: 30px;
+  --neumorphism-blur: 60px;
+  --neumorphism-textColor: #001f3f;
+  --neumorphism-textColorOpposite: #f6f5f7;
+  --neumorphism-baseColor: #e0e0e0;
+  --neumorphism-darkColor: #dadada;
+  --neumorphism-firstGradientColor: #dadada;
+  --neumorphism-lightColor: #adadad;
+  --neumorphism-secondGradientColor: #adadad;
+  --neumorphism-positionX: 30px;
+  --neumorphism-positionXOpposite: -30px;
+  --neumorphism-positionY: 30px;
+  --neumorphism-positionYOpposite: -30px;
+  --neumorphism-angle: 145deg;
 }
 
 body {
-  background-color: var(--baseColor);
-  color: var(--textColor);
+  background-color: var(--neumorphism-baseColor);
+  color: var(--neumorphism-textColor);
 }
