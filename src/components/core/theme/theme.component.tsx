@@ -24,7 +24,7 @@ export const Theme: React.FC<ThemeProps> = ({
   distance = 20,
   activeLightSource = 1,
   shape = 0,
-  radius = 15
+  radius = 15,
 }) => {
   useEffect(() => {
     if (!isValidColor(baseColor)) return;
@@ -89,7 +89,7 @@ export const Theme: React.FC<ThemeProps> = ({
     colorDifference,
     activeLightSource,
     shape,
-    radius
+    radius,
   ]);
 
   return <React.Fragment>{children}</React.Fragment>;

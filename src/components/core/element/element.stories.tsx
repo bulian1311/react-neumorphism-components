@@ -14,13 +14,17 @@ export default {
       name: 'Shape',
       options: ['flat', 'pressed', 'convex', 'concave'],
       control: { type: 'select' },
-    }
+    },
   },
 } as Meta;
 
 const Template: Story = (args) => (
   <Theme>
-    <ElementComponent style={{width: 300, height: 300}} shape={args.shape} renderAs="div">
+    <ElementComponent
+      style={{ width: 300, height: 300 }}
+      shape={args.shape}
+      renderAs="div"
+    >
       Element
     </ElementComponent>
   </Theme>
@@ -29,5 +33,5 @@ const Template: Story = (args) => (
 export const Element = Template.bind({});
 
 Element.args = {
-  shape: 'flat'
+  shape: 'flat',
 };

@@ -40,13 +40,13 @@ export default {
       name: 'Active light source',
       options: ['left-top', 'top-right', 'right-bottom', 'bottom-left'],
       control: { type: 'select' },
-    }
+    },
   },
 } as Meta;
 
 const Template: Story = (args) => (
   <ThemeComponent {...args}>
-    <Element style={{width: 300, height: 300}} renderAs="div">
+    <Element style={{ width: 300, height: 300 }} renderAs="div">
       Element
     </Element>
   </ThemeComponent>
@@ -60,5 +60,5 @@ Theme.args = {
   distance: 20,
   colorDifference: 0.15,
   radius: 15,
-  activeLightSource: "left-top"
+  activeLightSource: 'left-top',
 };
