@@ -12,7 +12,8 @@ interface ThemeProps {
   distance?: number;
   gradient?: boolean;
   shape?: number;
-  activeLightSource?: number;
+  activeLightSource?: 'left-top' | 'top-right' | 'right-bottom' | 'bottom-left';
+  radius?: number;
 }
 
 export const Theme: React.FC<ThemeProps> = ({
@@ -23,7 +24,7 @@ export const Theme: React.FC<ThemeProps> = ({
   distance = 20,
   activeLightSource = 1,
   shape = 0,
-  gradient = false,
+  radius = 15
 }) => {
   useEffect(() => {
     if (!isValidColor(baseColor)) return;
@@ -35,22 +36,22 @@ export const Theme: React.FC<ThemeProps> = ({
     const lightColor = colorLuminance(baseColor, colorDifference);
 
     switch (activeLightSource) {
-      case 1:
+      case 'left-top':
         positionX = distance;
         positionY = distance;
         angle = 145;
         break;
-      case 2:
+      case 'top-right':
         positionX = distance * -1;
         positionY = distance;
         angle = 225;
         break;
-      case 3:
+      case 'right-bottom':
         positionX = distance * -1;
         positionY = distance * -1;
         angle = 315;
         break;
-      case 4:
+      case 'bottom-left':
         positionX = distance;
         positionY = distance * -1;
         angle = 45;
@@ -79,6 +80,7 @@ export const Theme: React.FC<ThemeProps> = ({
     --neumorphism-lightColor: ${lightColor};
     --neumorphism-firstGradientColor: ${firstGradientColor};
     --neumorphism-secondGradientColor: ${secondGradientColor};
+    --neumorphism-radius: ${radius}%;
   `;
   }, [
     baseColor,
@@ -87,7 +89,7 @@ export const Theme: React.FC<ThemeProps> = ({
     colorDifference,
     activeLightSource,
     shape,
-    gradient,
+    radius
   ]);
 
   return <React.Fragment>{children}</React.Fragment>;

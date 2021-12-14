@@ -12,6 +12,7 @@
   --neumorphism-positionY: 30px;
   --neumorphism-positionYOpposite: -30px;
   --neumorphism-angle: 145deg;
+  --neumorphism-radius: 50px;
 }
 
 body {

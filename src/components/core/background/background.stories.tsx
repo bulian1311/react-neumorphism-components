@@ -1,19 +1,19 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Background } from './background.component';
+import { Background as BackgroundComponent } from './background.component';
 
 export default {
-  title: 'Example/Background',
-  component: Background,
+  title: 'Core/Background',
+  component: BackgroundComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof Background>;
+} as Meta;
 
-const Template: Story<typeof Background> = (args) => (
-  <Background {...args}>Background</Background>
+const Template: Story = (args) => (
+  <BackgroundComponent {...args}>Background</BackgroundComponent>
 );
 
-export const Back = Template.bind({});
-Back.args = {};
+export const Background = Template.bind({});
+Background.args = {};
