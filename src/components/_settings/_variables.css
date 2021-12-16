@@ -14,8 +14,3 @@
   --neumorphism-angle: 145deg;
   --neumorphism-radius: 50px;
 }
-
-body {
-  background-color: var(--neumorphism-baseColor);
-  color: var(--neumorphism-textColor);
-}

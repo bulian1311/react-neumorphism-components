@@ -1,0 +1,6 @@
+@import './_variables.css';
+
+body {
+  background-color: var(--neumorphism-baseColor);
+  color: var(--neumorphism-textColor);
+}

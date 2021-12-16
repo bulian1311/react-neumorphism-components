@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Field } from '../field';
 
 export default {
-  title: 'Example/Input',
+  title: 'Atoms/Input',
   component: Field.Input,
   subcomponents: { Field },
 } as Meta;
