@@ -6,6 +6,8 @@
   "module": "dist/index.esm.js",
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
+  "check-types": "tsc",
+  "test": "jest",
   "scripts": {
     "build": "npm run build:js && npm run build:types",
     "build:js": "rollup -c rollup.config.js",
