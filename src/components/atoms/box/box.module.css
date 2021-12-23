@@ -1,0 +1,8 @@
+.box {
+  display: block;
+  padding: 1.25rem;
+}
+
+.box:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
