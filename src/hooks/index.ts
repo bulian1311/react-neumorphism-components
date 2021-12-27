@@ -1,1 +1,1 @@
-export * from './useUniqueId';
+export * from './useUniqueId.hook';
