@@ -3,7 +3,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import externals from 'rollup-plugin-node-externals';
 import del from 'rollup-plugin-delete';
-import postcss from 'rollup-plugin-postcss';
 
 import pkg from './package.json';
 
@@ -27,10 +26,6 @@ export default [{
   plugins: [
     del({targets: "dist/*"}),
     externals({deps: true}),
-    postcss({
-      extract: true,
-      modules: true
-    }),
     nodeResolve({ extensions: [ '.js', '.jsx', '.ts', '.tsx' ] }),
     commonjs(),
     babel({
