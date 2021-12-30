@@ -1,1 +1,2 @@
-export * from './useUniqueId.hook';
+export * from './use-unique-id.hook';
+export * from './use-theme.hook';
