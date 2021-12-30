@@ -3,9 +3,8 @@ export type ThemeType = {
   blur: number;
   colorDifference: number;
   distance: number;
-  activeLightSource: number;
+  activeLightSource: 'left-top' | 'top-right' | 'right-bottom' | 'bottom-left';
   radius: number;
-
   positionX: number;
   positionXOpposite: number;
   positionY: number;
@@ -58,7 +57,7 @@ export type ThemeActionType =
     }
   | {
       type: ThemeActionsTypes.SET_ACTIVE_LIGHT_SOURCE;
-      payload: number;
+      payload: 'left-top' | 'top-right' | 'right-bottom' | 'bottom-left';
     }
   | {
       type: ThemeActionsTypes.SET_RADIUS;
@@ -112,4 +111,5 @@ export type ThemeActionType =
 export type ThemeContextType = {
   state: ThemeType;
   dispatch: (action: ThemeActionType) => void;
+  types: typeof ThemeActionsTypes;
 };

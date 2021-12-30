@@ -54,7 +54,7 @@ const initialState: ThemeContextType = {
     blur: 60,
     colorDifference: 0.15,
     distance: 20,
-    activeLightSource: 1,
+    activeLightSource: 'left-top',
     radius: 50,
     textColor: '#001f3f',
     textColorOpposite: '#f6f5f7',
@@ -69,6 +69,7 @@ const initialState: ThemeContextType = {
     angle: 145,
   },
   dispatch: () => {},
+  types: ThemeActionsTypes,
 };
 
 export const ThemeContext = createContext<ThemeContextType>(initialState);
@@ -77,7 +78,9 @@ export const ThemeProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(themeReducer, initialState.state);
 
   return (
-    <ThemeContext.Provider value={{ state, dispatch }}>
+    <ThemeContext.Provider
+      value={{ state, dispatch, types: initialState.types }}
+    >
       {children}
     </ThemeContext.Provider>
   );
