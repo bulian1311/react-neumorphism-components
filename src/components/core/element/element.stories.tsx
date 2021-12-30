@@ -9,6 +9,11 @@ export default {
   component: ElementComponent,
   subcomponents: { Theme },
   argTypes: {
+    size: {
+      type: { name: 'number', required: false },
+      name: 'Size',
+      control: { type: 'range', min: 0, max: 500, step: 1 },
+    },
     shape: {
       type: { name: 'string', required: false },
       name: 'Shape',
@@ -21,8 +26,8 @@ export default {
 const Template: Story = (args) => (
   <Theme>
     <ElementComponent
-      style={{ width: 300, height: 300 }}
-      shape={args.shape}
+      //style={{ width: 300, height: 300 }}
+      {...args}
       renderAs="div"
     >
       Element
@@ -34,4 +39,5 @@ export const Element = Template.bind({});
 
 Element.args = {
   shape: 'flat',
+  size: 100,
 };
