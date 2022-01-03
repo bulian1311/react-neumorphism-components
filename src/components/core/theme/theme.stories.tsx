@@ -46,7 +46,7 @@ export default {
 
 const Template: Story = (args) => (
   <ThemeComponent {...args}>
-    <Element style={{ width: 300, height: 300 }} renderAs="div">
+    <Element width={300} height={300} renderAs="div">
       Element
     </Element>
   </ThemeComponent>
