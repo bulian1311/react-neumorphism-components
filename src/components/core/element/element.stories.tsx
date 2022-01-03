@@ -9,9 +9,14 @@ export default {
   component: ElementComponent,
   subcomponents: { Theme },
   argTypes: {
-    size: {
+    height: {
       type: { name: 'number', required: false },
-      name: 'Size',
+      name: 'Height',
+      control: { type: 'range', min: 0, max: 500, step: 1 },
+    },
+    width: {
+      type: { name: 'number', required: false },
+      name: 'Width',
       control: { type: 'range', min: 0, max: 500, step: 1 },
     },
     shape: {
@@ -39,5 +44,6 @@ export const Element = Template.bind({});
 
 Element.args = {
   shape: 'flat',
-  size: 100,
+  height: 300,
+  width: 300,
 };
