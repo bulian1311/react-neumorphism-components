@@ -5,6 +5,7 @@ import {
   getContrast,
 } from '../../../utils/colors.utils';
 import { useTheme } from '../../../hooks';
+import { ThemeProvider } from './theme.context';
 import { ThemeProps } from './theme.types';
 
 export const Theme: React.FC<ThemeProps> = ({
@@ -47,5 +48,5 @@ export const Theme: React.FC<ThemeProps> = ({
     });
   }, [baseColor, colorDifference, activeLightSource]);
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
