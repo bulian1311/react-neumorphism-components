@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '../../../hooks';
 import { colorLuminance } from '../../../utils/colors.utils';
-import { StyledElement } from './element.styled';
+import { styledRenderAs } from './element.styled';
 import { ElementProps, ElementActionsTypes as ATypes } from './element.types';
 import { elementReducer } from './element.reducer';
 
@@ -11,28 +11,28 @@ export const Element = React.forwardRef<any, ElementProps>(
     {
       children,
       className,
-      renderAs,
+      renderAs = 'div',
       shape = 'flat',
       height = 150,
-      width = 150,
+      width,
+      distance = 15,
       ...props
     },
     ref,
   ) => {
     const theme = useTheme();
-    const RenderAs = renderAs;
 
     const [state, dispatch] = useReducer(elementReducer, {
-      distance: 0,
-      radius: 0,
-      blur: 0,
-      positionX: 0,
-      positionXOpposite: 0,
-      positionY: 0,
-      positionYOpposite: 0,
-      angle: 0,
-      firstGradientColor: '',
-      secondGradientColor: '',
+      distance: Math.round(height * 0.1),
+      radius: height - (height / 100) * 85,
+      blur: Math.round(height * 0.2),
+      positionX: distance,
+      positionXOpposite: distance * -1,
+      positionY: distance,
+      positionYOpposite: distance * -1,
+      angle: 145,
+      firstGradientColor: colorLuminance(theme.state.baseColor, 0.07),
+      secondGradientColor: colorLuminance(theme.state.baseColor, -0.1),
     });
 
     useEffect(() => {
@@ -176,9 +176,10 @@ export const Element = React.forwardRef<any, ElementProps>(
       }
     }, [theme.state.activeLightSource, state.distance]);
 
+    const StyledElement = styledRenderAs(renderAs);
+
     return (
       <StyledElement
-        component={<RenderAs />}
         ref={ref}
         theme={theme.state}
         state={state}
@@ -196,9 +197,9 @@ export const Element = React.forwardRef<any, ElementProps>(
 Element.displayName = 'Element';
 
 Element.defaultProps = {
+  renderAs: 'div',
   shape: 'flat',
   height: 150,
-  width: 150,
 };
 
 Element.propTypes = {

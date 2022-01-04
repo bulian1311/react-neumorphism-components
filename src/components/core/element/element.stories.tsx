@@ -25,13 +25,17 @@ export default {
       options: ['flat', 'pressed', 'convex', 'concave'],
       control: { type: 'select' },
     },
+    distance: {
+      type: { name: 'number', required: false },
+      name: 'Distance',
+      control: { type: 'range', min: 0, max: 50, step: 1 },
+    },
   },
 } as Meta;
 
 const Template: Story = (args) => (
   <Theme>
     <ElementComponent
-      //style={{ width: 300, height: 300 }}
       {...args}
       renderAs="div"
     >
@@ -46,4 +50,5 @@ Element.args = {
   shape: 'flat',
   height: 300,
   width: 300,
+  distance: 30,
 };

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 export type ElementStateType = {
   distance: number;
@@ -13,23 +13,23 @@ export type ElementStateType = {
   secondGradientColor: string;
 };
 
-export type RenderAsTypes = 'div' | 'button' | 'input';
+export type RenderAsType = 'div' | 'button' | 'input';
 
 export type ElementProps = ComponentPropsWithoutRef<any> & {
-  renderAs: RenderAsTypes;
+  renderAs?: RenderAsType;
   shape?: 'flat' | 'pressed' | 'convex' | 'concave';
   size?: number;
   width?: number;
   height?: number;
+  distance?: number;
 };
 
 export type StyledElementProps = {
-  component: any;
   theme: any;
   shape: any;
   state: ElementStateType;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 };
 
 export enum ElementActionsTypes {
