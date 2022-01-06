@@ -4,7 +4,7 @@ import { render, RenderResult } from '@testing-library/react';
 
 let documentBody: RenderResult;
 
-describe('Block', () => {
+describe('Box', () => {
   beforeEach(() => {
     documentBody = render(<Box>Box</Box>);
   });
