@@ -203,7 +203,9 @@ Element.defaultProps = {
 };
 
 Element.propTypes = {
+  renderAs: PropTypes.oneOf(['div', 'button', 'input']),
   shape: PropTypes.oneOf(['flat', 'pressed', 'convex', 'concave']),
   height: PropTypes.number,
   width: PropTypes.number,
+  distance: PropTypes.number,
 };

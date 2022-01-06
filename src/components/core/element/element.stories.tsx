@@ -35,10 +35,7 @@ export default {
 
 const Template: Story = (args) => (
   <Theme>
-    <ElementComponent
-      {...args}
-      renderAs="div"
-    >
+    <ElementComponent {...args} renderAs="div">
       Element
     </ElementComponent>
   </Theme>

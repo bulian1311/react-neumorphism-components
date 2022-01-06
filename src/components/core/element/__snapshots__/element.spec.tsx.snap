@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Element Matches snapshot. 1`] = `
+<div
+  class="sc-hBUSln erSVCa"
+  height="150"
+  shape="flat"
+>
+  Element
+</div>
+`;
