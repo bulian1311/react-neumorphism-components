@@ -1,7 +1,6 @@
 import React from 'react';
-import cn from 'classnames';
-import styles from './block.module.css';
+import { StyledBlock } from './block.styled';
 
 export const Block: React.FC = ({ children }) => {
-  return <div className={cn(styles.block)}>{children}</div>;
+  return <StyledBlock>{children}</StyledBlock>;
 };
