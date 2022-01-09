@@ -8,6 +8,9 @@ export const styledRenderAs = (tag: RenderAsType) => {
     align-items: center;
     justify-content: center;
     text-align: center;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
 
     ${({ state, theme, width, height }) => css`
       width: ${width ? width + 'px;' : '100%;'};
@@ -20,6 +23,18 @@ export const styledRenderAs = (tag: RenderAsType) => {
           ${state.blur}px ${theme.lightColor};
     `}
 
+    ${({ state, theme, shape, active }) =>
+      shape === 'flat' &&
+      active &&
+      css`
+        &:active {
+          box-shadow: inset ${state.positionX}px ${state.positionY}px
+              ${state.blur}px ${theme.darkColor},
+            inset ${state.positionXOpposite}px ${state.positionYOpposite}px
+              ${state.blur}px ${theme.lightColor};
+        }
+      `}
+
     ${({ state, shape, theme }) =>
       shape === 'pressed' &&
       css`
@@ -29,7 +44,7 @@ export const styledRenderAs = (tag: RenderAsType) => {
             ${state.blur}px ${theme.lightColor};
       `}
 
-    ${({ state, shape }) =>
+    ${({ state, shape, active }) =>
       shape === 'convex' &&
       css`
         background: linear-gradient(
@@ -37,6 +52,17 @@ export const styledRenderAs = (tag: RenderAsType) => {
           ${state.firstGradientColor},
           ${state.secondGradientColor}
         );
+
+        ${active &&
+        css`
+          &:active {
+            background: linear-gradient(
+              ${state.angle}deg,
+              ${state.secondGradientColor},
+              ${state.firstGradientColor}
+            );
+          }
+        `}
       `}
 
     ${({ state, shape }) =>

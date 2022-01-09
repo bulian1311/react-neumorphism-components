@@ -22,6 +22,7 @@ export type ElementProps = ComponentPropsWithoutRef<any> & {
   width?: number;
   height?: number;
   distance?: number;
+  active?: boolean;
 };
 
 export type StyledElementProps = {
@@ -30,6 +31,7 @@ export type StyledElementProps = {
   state: ElementStateType;
   width?: number;
   height?: number;
+  active?: boolean;
 };
 
 export enum ElementActionsTypes {

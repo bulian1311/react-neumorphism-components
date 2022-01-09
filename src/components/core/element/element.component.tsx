@@ -10,7 +10,6 @@ export const Element = React.forwardRef<any, ElementProps>(
   (
     {
       children,
-      className,
       renderAs = 'div',
       shape = 'flat',
       height = 150,

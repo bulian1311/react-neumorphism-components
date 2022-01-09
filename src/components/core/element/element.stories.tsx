@@ -9,6 +9,11 @@ export default {
   component: ElementComponent,
   subcomponents: { Theme },
   argTypes: {
+    active: {
+      type: { name: 'boolean', required: false },
+      name: 'Active',
+      control: { type: 'boolean' },
+    },
     height: {
       type: { name: 'number', required: false },
       name: 'Height',
@@ -44,6 +49,7 @@ const Template: Story = (args) => (
 export const Element = Template.bind({});
 
 Element.args = {
+  active: false,
   shape: 'flat',
   height: 300,
   width: 300,
