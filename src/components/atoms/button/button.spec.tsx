@@ -20,4 +20,10 @@ describe('Button', () => {
 
     expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'Test');
   });
+
+  it('Matches snapshot.', () => {
+    const { container } = render(<Button>Button</Button>);
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
