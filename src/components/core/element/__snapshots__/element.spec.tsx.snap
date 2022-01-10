@@ -2,9 +2,9 @@
 
 exports[`Element Matches snapshot. 1`] = `
 <div
-  class="sc-hBUSln EYZMa"
-  height="150"
+  class="sc-hBUSln lcTSvT"
   shape="flat"
+  size="150"
 >
   Element
 </div>

@@ -19,8 +19,6 @@ export type ElementProps = ComponentPropsWithoutRef<any> & {
   renderAs?: RenderAsType;
   shape?: 'flat' | 'pressed' | 'convex' | 'concave';
   size?: number;
-  width?: number;
-  height?: number;
   distance?: number;
   active?: boolean;
 };
@@ -29,8 +27,7 @@ export type StyledElementProps = {
   theme: any;
   shape: any;
   state: ElementStateType;
-  width?: number;
-  height?: number;
+  size?: number;
   active?: boolean;
 };
 

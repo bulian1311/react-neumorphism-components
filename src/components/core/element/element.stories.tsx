@@ -14,14 +14,9 @@ export default {
       name: 'Active',
       control: { type: 'boolean' },
     },
-    height: {
+    size: {
       type: { name: 'number', required: false },
-      name: 'Height',
-      control: { type: 'range', min: 0, max: 500, step: 1 },
-    },
-    width: {
-      type: { name: 'number', required: false },
-      name: 'Width',
+      name: 'Size',
       control: { type: 'range', min: 0, max: 500, step: 1 },
     },
     shape: {
@@ -40,7 +35,7 @@ export default {
 
 const Template: Story = (args) => (
   <Theme>
-    <ElementComponent {...args} renderAs="div">
+    <ElementComponent {...args} renderAs="div" style={{width: 300}}>
       Element
     </ElementComponent>
   </Theme>
@@ -51,7 +46,6 @@ export const Element = Template.bind({});
 Element.args = {
   active: false,
   shape: 'flat',
-  height: 300,
-  width: 300,
+  size: 300,
   distance: 30,
 };

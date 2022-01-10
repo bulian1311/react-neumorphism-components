@@ -8,13 +8,11 @@ export const styledRenderAs = (tag: RenderAsType) => {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: none;
-    outline: none;
     transition: all 0.4s;
 
-    ${({ state, theme, width, height }) => css`
-      width: ${width ? width + 'px;' : '100%;'};
-      height: ${height}px;
+    ${({ state, theme, size }) => css`
+      height: ${size}px;
+      color: ${theme.textColor};
       border-radius: ${state.radius}px;
       background: ${theme.baseColor};
       box-shadow: ${state.positionX}px ${state.positionY}px ${state.blur}px

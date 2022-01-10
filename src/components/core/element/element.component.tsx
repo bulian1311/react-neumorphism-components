@@ -12,8 +12,7 @@ export const Element = React.forwardRef<any, ElementProps>(
       children,
       renderAs = 'div',
       shape = 'flat',
-      height = 150,
-      width,
+      size = 150,
       distance = 15,
       ...props
     },
@@ -22,9 +21,9 @@ export const Element = React.forwardRef<any, ElementProps>(
     const theme = useTheme();
 
     const [state, dispatch] = useReducer(elementReducer, {
-      distance: Math.round(height * 0.1),
-      radius: height - (height / 100) * 85,
-      blur: Math.round(height * 0.2),
+      distance: Math.round(size * 0.1),
+      radius: size - (size / 100) * 85,
+      blur: Math.round(size * 0.2),
       positionX: distance,
       positionXOpposite: distance * -1,
       positionY: distance,
@@ -37,17 +36,17 @@ export const Element = React.forwardRef<any, ElementProps>(
     useEffect(() => {
       dispatch({
         type: ATypes.SET_DISTANCE,
-        payload: Math.round(height * 0.1),
+        payload: Math.round(size * 0.1),
       });
       dispatch({
         type: ATypes.SET_BLUR,
-        payload: Math.round(height * 0.2),
+        payload: Math.round(size * 0.2),
       });
       dispatch({
         type: ATypes.SET_RADIUS,
-        payload: height - (height / 100) * 85,
+        payload: size - (size / 100) * 85,
       });
-    }, [height]);
+    }, [size]);
 
     useEffect(() => {
       dispatch({
@@ -183,8 +182,7 @@ export const Element = React.forwardRef<any, ElementProps>(
         theme={theme.state}
         state={state}
         shape={shape}
-        width={width}
-        height={height}
+        size={size}
         {...props}
       >
         {children}
@@ -198,13 +196,13 @@ Element.displayName = 'Element';
 Element.defaultProps = {
   renderAs: 'div',
   shape: 'flat',
-  height: 150,
+  size: 150,
 };
 
 Element.propTypes = {
   renderAs: PropTypes.oneOf(['div', 'button', 'input']),
   shape: PropTypes.oneOf(['flat', 'pressed', 'convex', 'concave']),
-  height: PropTypes.number,
+  size: PropTypes.number,
   width: PropTypes.number,
   distance: PropTypes.number,
 };
