@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Block matches snapshot 1`] = `
+exports[`Box matches snapshot 1`] = `
 <div
-  class="sc-jRQBWg eWeXdP"
-  height="150"
+  class="sc-jRQBWg NoBAS"
   shape="flat"
+  size="150"
 >
   Box
 </div>
