@@ -1,0 +1,17 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import * as stories from './content.stories.tsx';
+import { Content } from './content.component.tsx';
+
+<Meta title="Atoms/Content" component={Content} />
+
+# Content
+
+This component handles WYSIWYG/plain HTML content. The example below demonstrates the formatting of different HTML elements.
+
+<ArgsTable of={Content} />
+
+## Example
+
+<Canvas>
+  <Story story={stories.Content} name="Content" />
+</Canvas>
