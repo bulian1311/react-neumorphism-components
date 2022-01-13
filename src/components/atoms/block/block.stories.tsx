@@ -1,19 +1,7 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Story } from '@storybook/react';
 
 import { Block as BlockComponent } from './block.component';
-
-export default {
-  title: 'Atoms/Block',
-  component: BlockComponent,
-  argTypes: {
-    withoutBlock: {
-      type: { name: 'boolean', required: false },
-      name: 'Without Block',
-      control: { type: 'boolean' },
-    },
-  },
-} as Meta;
 
 const Template: Story = ({ withoutBlock }) => (
   <>
@@ -34,6 +22,15 @@ const Template: Story = ({ withoutBlock }) => (
 );
 
 export const Block = Template.bind({});
+
 Block.args = {
   withoutBlock: false,
+};
+
+Block.argTypes = {
+  withoutBlock: {
+    type: { name: 'boolean', required: false },
+    name: 'Without Block',
+    control: { type: 'boolean' },
+  },
 };
