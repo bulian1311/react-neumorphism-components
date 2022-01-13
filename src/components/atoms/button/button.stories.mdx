@@ -1,8 +1,8 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { Button } from './button.component.tsx';
 import * as stories from './button.stories.tsx';
 
-<Meta title="Atoms/Button" />
+<Meta title="Atoms/Button" component={Button} />
 
 # Button
 
@@ -25,3 +25,5 @@ Multiple buttons can be grouped together to form a group, using the `<Button.Gro
 <Canvas>
   <Story story={stories.Button} name="Button" />
 </Canvas>
+
+<ArgsTable story="Button" />

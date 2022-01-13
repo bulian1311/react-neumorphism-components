@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { forwardRef, useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '../../../hooks';
+import { ButtonGroup } from '../button-group';
 import { StyledButton } from './button.styled';
-import { ButtonProps } from './button.types';
+import { ButtonProps, CompoundedButton } from './button.types';
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, size, isLoading, ...props }, ref) => {
     const theme = useTheme();
     const [height, setHeight] = useState(80);
@@ -39,7 +40,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       </StyledButton>
     );
   },
-);
+) as CompoundedButton;
+
+Button.Group = ButtonGroup;
 
 Button.displayName = 'Button';
 
