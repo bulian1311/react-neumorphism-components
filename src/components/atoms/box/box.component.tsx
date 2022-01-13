@@ -10,3 +10,9 @@ export const Box: React.FC = ({ children }) => {
     </Element>
   );
 };
+
+Box.displayName = 'Box';
+
+Box.propTypes = {};
+
+Box.defaultProps = {};
