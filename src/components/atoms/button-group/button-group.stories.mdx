@@ -1,0 +1,17 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import * as stories from './button-group.stories.tsx';
+import { Button } from '../button/button.component.tsx';
+
+<Meta title="Atoms/ButtonGroup" component={Button.Group} />
+
+# ButtonGroup
+
+If you want to group buttons together on a single line, use `<Button.Group` modifier as container.
+
+<ArgsTable of={Button.Group} />
+
+## Example
+
+<Canvas>
+  <Story story={stories.ButtonGroup} name="ButtonGroup" />
+</Canvas>
