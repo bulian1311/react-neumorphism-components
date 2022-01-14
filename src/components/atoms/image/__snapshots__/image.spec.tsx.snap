@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image matches snapshot 1`] = `
+<figure
+  class="sc-gsDKAQ igVdxT"
+  src=""
+>
+  <img
+    class="sc-bdvvtL krNaSv"
+    src=""
+  />
+</figure>
+`;
