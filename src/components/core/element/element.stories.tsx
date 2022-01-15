@@ -35,7 +35,7 @@ export default {
 
 const Template: Story = (args) => (
   <Theme>
-    <ElementComponent {...args} renderAs="div" style={{width: 300}}>
+    <ElementComponent {...args} renderAs="div" style={{ width: 300 }}>
       Element
     </ElementComponent>
   </Theme>
